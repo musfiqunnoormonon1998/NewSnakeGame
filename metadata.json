@@ -1,0 +1,6 @@
+{
+  "name": "Python Turtle Snake Game",
+  "description": "Interactive Python Turtle Snake Game with live canvas interpreter, code viewer, and downloadable script.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
