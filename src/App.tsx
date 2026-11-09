@@ -11,6 +11,8 @@ import { CodeViewer } from './components/CodeViewer';
 import { ControlsOverlay } from './components/ControlsOverlay';
 import { SettingsPanel } from './components/SettingsPanel';
 import { CheatSheet } from './components/CheatSheet';
+import { PWAInstallButton } from './components/PWAInstallButton';
+import { OfflineIndicator } from './components/OfflineIndicator';
 import { sounds } from './utils/audio';
 import {
   Gamepad2,
@@ -296,32 +298,40 @@ export default function App() {
             </div>
           </div>
 
-          {/* Top Score Tracker */}
-          <div className="flex items-center space-x-3 bg-slate-950 px-4 py-2 rounded-xl border border-slate-800">
-            <div className="flex items-center space-x-1.5">
-              <Sparkles className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs font-mono text-slate-400 uppercase">
-                Score:
-              </span>
-              <span className="text-base font-mono font-extrabold text-emerald-400">
-                {score}
-              </span>
-            </div>
+          {/* Right Header Actions: Install Button + Score Tracker */}
+          <div className="flex items-center space-x-3">
+            <PWAInstallButton />
 
-            <div className="h-4 w-px bg-slate-800" />
+            {/* Top Score Tracker */}
+            <div className="flex items-center space-x-3 bg-slate-950 px-4 py-2 rounded-xl border border-slate-800">
+              <div className="flex items-center space-x-1.5">
+                <Sparkles className="w-4 h-4 text-emerald-400" />
+                <span className="text-xs font-mono text-slate-400 uppercase">
+                  Score:
+                </span>
+                <span className="text-base font-mono font-extrabold text-emerald-400">
+                  {score}
+                </span>
+              </div>
 
-            <div className="flex items-center space-x-1.5">
-              <Trophy className="w-4 h-4 text-amber-400" />
-              <span className="text-xs font-mono text-slate-400 uppercase">
-                Best:
-              </span>
-              <span className="text-base font-mono font-extrabold text-amber-400">
-                {highScore}
-              </span>
+              <div className="h-4 w-px bg-slate-800" />
+
+              <div className="flex items-center space-x-1.5">
+                <Trophy className="w-4 h-4 text-amber-400" />
+                <span className="text-xs font-mono text-slate-400 uppercase">
+                  Best:
+                </span>
+                <span className="text-base font-mono font-extrabold text-amber-400">
+                  {highScore}
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </header>
+
+      {/* Connectivity Banner */}
+      <OfflineIndicator />
 
       {/* Navigation Tabs */}
       <nav className="bg-slate-900/60 border-b border-slate-800/80 px-4">
@@ -445,7 +455,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-slate-800/80 py-4 px-6 text-center text-xs text-slate-500 font-mono">
-        Built with React + TypeScript & Canvas Turtle Renderer • Compatible with Python 3.x <code className="text-emerald-400">import turtle</code>
+        Built with React + TypeScript & Canvas Turtle Renderer • 100% Offline-Ready PWA • Compatible with Python 3.x <code className="text-emerald-400">import turtle</code>
       </footer>
     </div>
   );

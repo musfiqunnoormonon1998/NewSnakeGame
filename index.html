@@ -1,13 +1,80 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Python Turtle Snake Game</title>
+    <meta name="description" content="Interactive Python Turtle Snake Game with live canvas interpreter, code viewer, and downloadable script." />
+    <meta name="theme-color" content="#020617" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Mobile PWA & iOS Safari capabilities -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="SnakeGame" />
+    <meta name="application-name" content="Python Turtle Snake Game" />
+
+    <!-- Icons & Apple Touch Icons -->
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/pwa-512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph / Social Cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Python Turtle Snake Game" />
+    <meta property="og:description" content="Interactive Python Turtle Snake Game with live canvas interpreter, code viewer, and downloadable script." />
+    <meta property="og:image" content="/pwa-512x512.png" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Python Turtle Snake Game" />
+    <meta name="twitter:description" content="Interactive Python Turtle Snake Game with live canvas interpreter, code viewer, and downloadable script." />
+    <meta name="twitter:image" content="/pwa-512x512.png" />
+
+    <!-- Immediate Service Worker registration fallback for offline loading -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function(err) {
+            console.debug('ServiceWorker registration handled via PWA plugin:', err);
+          });
+        });
+      }
+    </script>
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-emerald-500 selection:text-slate-950">
+    <div id="root">
+      <!-- Instant App Shell displayed offline before React hydration -->
+      <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #020617; color: #f8fafc; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-align: center; padding: 24px;">
+        <div style="width: 64px; height: 64px; margin-bottom: 20px; border-radius: 16px; background: linear-gradient(135deg, #059669, #10b981); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.3);">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#020617" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 17 10 11 4 5"></polyline>
+            <line x1="12" y1="19" x2="20" y2="19"></line>
+          </svg>
+        </div>
+        <h1 style="font-size: 22px; font-weight: 700; margin: 0 0 8px 0; color: #ffffff; letter-spacing: -0.025em;">
+          Python Turtle Snake Game
+        </h1>
+        <p style="font-size: 14px; color: #94a3b8; max-width: 380px; margin: 0 0 20px 0; line-height: 1.5;">
+          Interactive Python Turtle canvas emulator & code viewer. Ready for online and offline play.
+        </p>
+        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 9999px; background-color: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); color: #34d399; font-size: 12px; font-family: ui-monospace, monospace;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #10b981;"></span>
+          Initializing canvas engine...
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <div style="position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: #020617; color: #fff; padding: 20px; text-align: center;">
+        <div>
+          <h2>JavaScript Required</h2>
+          <p>Please enable JavaScript to run the Python Turtle interpreter and play the game.</p>
+        </div>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
